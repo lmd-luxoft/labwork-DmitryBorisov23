@@ -1,0 +1,21 @@
+div > p {
+    background-color: blueviolet;
+    width:100px;
+}
+h3 {
+    padding:12px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width:150px;
+    border:1px solid blue;
+    border-style:ridge;
+}
+a:link {
+color:red;
+}
+a:visited {
+color:blue;
+}
+p::first-line{
+color:black;
+}
