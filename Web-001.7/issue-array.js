@@ -4,6 +4,7 @@ arr[0] = 1;
 arr[1] = 3;
 arr[2] = 4;
 arr[3] = -3;
+arr[4] = "sdfsd";
 
 arr[50]=5;
 console.log(arr.length);
@@ -14,13 +15,16 @@ function calculations()
     let minVal = null;
     for(let i of arr)
     {
-        if(minVal == null)
+        if(typeof i == "number")
         {
-            minVal = i;
-        }
-        if (i < minVal)
-        {
-            minVal = i;
+            if(minVal == null)
+            {
+                minVal = i;
+            }
+            if (i < minVal)
+            {
+                minVal = i;
+            }
         }
     }
     console.log(`Min value is: ${minVal}`);
@@ -29,13 +33,16 @@ function calculations()
     let maxVal = null;
     for(let i of arr)
     {
-        if(maxVal == null)
+        if(typeof i == "number")
         {
-            maxVal = i;
-        }
-        if (i > maxVal)
-        {
-            maxVal = i;
+            if(maxVal == null)
+            {
+                maxVal = i;
+            }
+            if (i > maxVal)
+            {
+                maxVal = i;
+            }
         }
     }
     console.log(`Max value is: ${maxVal}`);
@@ -46,14 +53,14 @@ function calculations()
     let cnt = 0;
     for(let i of arr)
     {
-        if(i != null && i != undefined)
+        if(i != null && i != undefined && typeof i == "number")
         {
             sumVal = sumVal + i;
             cnt = cnt + 1;
         }
     }
-    console.log(`Sum of elements is: ${sumVal}`);
-    console.log(`count is: ${cnt}`);
+    console.log(`Sum of elements: ${sumVal}`);
+    console.log(`count: ${cnt}`);
 
     if (cnt != 0)
     {
