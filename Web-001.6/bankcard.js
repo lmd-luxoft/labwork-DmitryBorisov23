@@ -1,11 +1,11 @@
 class BankCard
 {
-    constructor(cardNumber,balance,pin,cardType)
+    constructor(cardNumber,balance,pin, limit)
     {
         this.CardNumber = cardNumber;
         this.Balance = balance;
         this.Pin = pin;
-        this.CardType = cardType;
+        this.Limit = limit;
     }
     operation(operationType,amount,pin)
     {
@@ -22,7 +22,7 @@ class BankCard
     }
     cashWithdrawal(amount,pin)
     {   
-        if (this.Balance - amount >= 0 || this.CardType == "Debit")
+        if (this.Balance - amount >= 0)
         {
             return this.operation("withdrawal",-1 * amount,pin);
         }
@@ -49,8 +49,36 @@ class BankCard
     }
 }
 
+class DebitCard extends BankCard
+{
+    constructor(cardNumber,balance,pin,limit)
+    {
+        super(cardNumber,balance,pin,limit);
+    }
+}
+
+class CreditCard extends BankCard
+{
+    constructor(cardNumber,balance,pin,limit)
+    {
+        super(cardNumber,balance,pin,limit);
+    }
+    cashWithdrawal(amount,pin)
+    {   
+        if (this.Balance - amount >= (-1 * this.Limit) )
+        {
+            return this.operation("withdrawal",-1 * amount,pin);
+        }
+        else
+        {
+            return "This card type exeeds limit. Card number: " + this.CardNumber;
+        }
+    }
+}
+
+
 console.log("---------------------Credit-------------------------");
-let creditCard = new BankCard("001122334455",0,"1122","Credit");
+let creditCard = new CreditCard("001122334455",0,"1122",1000);
 console.log(creditCard.getBalance("1100"));
 console.log(creditCard.getBalance("1122"));
 console.log(creditCard.cashDeposit(1000,"1122"));
@@ -59,16 +87,21 @@ console.log(creditCard.cashWithdrawal(500,"1102"));
 console.log(creditCard.cashWithdrawal(600,"1122"));
 console.log(creditCard.cashWithdrawal(600,"1122"));
 console.log(creditCard.getBalance("1122"));
+console.log(creditCard.cashWithdrawal(1600,"1122"));
+console.log(creditCard.getBalance("1122"));
 
 console.log("---------------------Debit--------------------------");
-let debitCard = new BankCard("001122334456",0,"1122","Debit");
+let debitCard = new DebitCard("001122334456",0,"1123",0);
 console.log(debitCard.getBalance("1100"));
-console.log(debitCard.getBalance("1122"));
-console.log(debitCard.cashDeposit(1000,"1122"));
+console.log(debitCard.getBalance("1123"));
+console.log(debitCard.cashDeposit(1000,"1123"));
 console.log(debitCard.cashDeposit(900,"1102"));
 console.log(debitCard.cashWithdrawal(500,"1102"));
-console.log(debitCard.cashWithdrawal(600,"1122"));
-console.log(debitCard.cashWithdrawal(600,"1122"));
-console.log(debitCard.getBalance("1122"));
+console.log(debitCard.cashWithdrawal(600,"1123"));
+console.log(debitCard.cashWithdrawal(600,"1123"));
+console.log(debitCard.getBalance("1123"));
 
+console.log("----------------------------------------------------");
+console.log(creditCard.getBalance("1122"));
+console.log(debitCard.getBalance("1123"));
 console.log("----------------------------------------------------");
