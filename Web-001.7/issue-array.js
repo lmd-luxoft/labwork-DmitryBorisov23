@@ -5,6 +5,7 @@ arr[1] = 3;
 arr[2] = 4;
 arr[3] = -3;
 arr[4] = "sdfsd";
+arr[5] = null;
 
 arr[50]=5;
 console.log(arr.length);
