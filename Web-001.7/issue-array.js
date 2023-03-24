@@ -9,7 +9,7 @@ arr[4] = "sdfsd";
 arr[50]=5;
 console.log(arr.length);
 
-function calculations()
+function getMinValue()
 {
     //Min
     let minVal = null;
@@ -28,7 +28,9 @@ function calculations()
         }
     }
     console.log(`Min value is: ${minVal}`);
-
+}
+function getMaxValue()
+{
     //Max
     let maxVal = null;
     for(let i of arr)
@@ -46,7 +48,10 @@ function calculations()
         }
     }
     console.log(`Max value is: ${maxVal}`);
+}
 
+function getAvgValue()
+{
     //Average
     let averageVal = 0;
     let sumVal = 0;
@@ -76,4 +81,6 @@ for(let i of arr)
 }
 
 console.log("---------------Calculations-----------------");
-calculations();
+getMinValue();
+getMaxValue()
+getAvgValue();
