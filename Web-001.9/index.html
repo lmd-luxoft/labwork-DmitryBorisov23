@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="keyboard.js"></script>
+        <script src="mouse.js"></script>
+        <button onclick = "document.getElementById('time').innerHTML=Date()">The time is?</button>
+        <p id="time"></p>
+        <input id="userInput" 
+            onkeydown="onKeyDown(this)" 
+            onkeyup="onKeyUp(this)" 
+            onkeypress="onKeyPress(this)"/>
+        <button id="userButton" 
+            onsubmit="clearState();" 
+            onkeydown="onKeyDownButton(this)" 
+            onkeyup="onKeyUpButton(this)" 
+            onkeypress="onKeyPressButton(this)"
+            onclick="onClick(this)">Press Btn</button>
+        <div style = "background-color:green;border:solid 4px black;width:100px;height:100px;"
+            onmousedown="onMouseDown(this);"
+            onmouseenter="onMouseEnter(this);"
+            onmousemove="onMouseMove(this);"
+            onmouseleave="onMouseLeave(this);"
+            onmouseout="onMouseOut(this);"
+            onmouseover="onMouseOver(this);"
+            onwheel="onWheel(this);">
+        </div>
+        <div id="state"></div>
+        <hr/>
+        <script> 
+            function clearState()
+            {
+                let state = document.getElementById("state");
+                state.innerHTML="";
+            }
+        </script>
+    </body>
+</html>
