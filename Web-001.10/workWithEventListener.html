@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+ 
+        <div id="rabbit" style="background-color:  green; border: solid 3px black; width:100px; height: 100px"></div>
+        <hr/>
+        <div id="state"></div>
+        <button id = "removeRecolorButton" onclick="RemoveRecolor()">Remove Recolor handler</button>
+        <button id = "addRecolorButton" onclick="AddRecolor()">Add Recolor handler</button>
+        <script>
+            let elem = document.getElementById("rabbit");
+            let recolorHandler = () =>
+            {
+                elem.style.backgroundColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            }
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            function AddRecolor()
+            {                
+                let elem = document.getElementById("rabbit");
+                elem.addEventListener("click",recolorHandler);
+            }
+            function RemoveRecolor()
+            {                
+                let elem = document.getElementById("rabbit");
+                elem.removeEventListener("click",recolorHandler);
+            }
+            elem.addEventListener("click",(e)=>{
+                elem.innerHTML = `${e.clientX} ${e.clientY}`
+            });
+            elem.addEventListener("click",recolorHandler);
+            // elem.addEventListener("click",()=>{
+            //     elem.style.backgroundColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`
+            // });
+        </script>
+    </body>
+</html>

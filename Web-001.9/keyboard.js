@@ -1,39 +1,45 @@
-function onKeyDown(sender)
+function onKeyDown(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY DOWN<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY DOWN<br/>";
+    AddState("KEY DOWN<br/>",e)
 }
 
-function onKeyUp(sender)
+function onKeyUp(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY UP<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY UP<br/>";
+    AddState("KEY UP<br/>",e)
 
 }
-function onKeyPress(sender)
+function onKeyPress(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY PRESS<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY PRESS<br/>";
+    AddState("KEY PRESS<br/>",e)
 }
 
-function onKeyDownButton(sender)
+function onKeyDownButton(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY DOWN BUTTON<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY DOWN BUTTON<br/>";
+    AddState("KEY DOWN BUTTON<br/>",e)
 }
 
-function onKeyUpButton(sender)
+function onKeyUpButton(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY UP BUTTON<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY UP BUTTON<br/>";
+    AddState("KEY UP BUTTON<br/>",e)
 
 }
-function onKeyPressButton(sender)
+function onKeyPressButton(sender,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+="KEY PRESS BUTTON<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+="KEY PRESS BUTTON<br/>";
+    AddState("KEY PRESS BUTTON<br/>",e)
 }
-function onClick(sender)
+function onClick(sender,e)
 {
     let btn = document.getElementById("userButton");
     //btn.style.display="none";

@@ -12,15 +12,15 @@
             function SetHandlers()
             {
                 let rabbit = document.getElementById("rabbit");
-                rabbit.onclick = () => 
+                rabbit.onclick = (e) => 
                 {
                     let state = document.getElementById("state");
-                    state.innerHTML += "ONCLICK <br/>"
+                    state.innerHTML += `${e.type} ${e.clientX} ${e.clientY} <br/>`
                 }
                 rabbit.onmouseenter = () =>
                 {
                     let state = document.getElementById("state");
-                    state.innerHTML += "MOUSE ENTER <br/>"
+                    state.innerHTML += `${e.type} ${e.clientX} ${e.clientY} <br/>`
                 }
             }
         </script>

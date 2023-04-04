@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="outer" style="border: 2px solid green">        
+            <div id="inner" style="border: 2px solid yellow; width:90%; height: 30px; margin:20px"></div>
+        </div>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            let inner = document.getElementById("inner");
+            let outer = document.getElementById("outer");
+            let handler = (e) => {
+                e.target.innerHTML +='target';
+                e.currentTarget.innerHTML +='current';
+                //e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+            inner.addEventListener('click',handler);
+            inner.addEventListener('click', () => {
+                inner.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+            })
+            outer.addEventListener('click',handler);
+        </script>
+    </body>
+</html>

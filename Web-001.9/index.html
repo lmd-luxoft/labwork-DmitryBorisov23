@@ -3,30 +3,40 @@
     <head>
     </head>
     <body>
+        <script src="stateDisplay.js"></script>
         <script src="keyboard.js"></script>
         <script src="mouse.js"></script>
         <button onclick = "document.getElementById('time').innerHTML=Date()">The time is?</button>
         <p id="time"></p>
         <input id="userInput" 
-            onkeydown="onKeyDown(this)" 
-            onkeyup="onKeyUp(this)" 
-            onkeypress="onKeyPress(this)"/>
+            onkeydown="onKeyDown(this,event)" 
+            onkeyup="onKeyUp(this,event)" 
+            onkeypress="onKeyPress(this,event)"/>
         <button id="userButton" 
             onsubmit="clearState();" 
-            onkeydown="onKeyDownButton(this)" 
-            onkeyup="onKeyUpButton(this)" 
-            onkeypress="onKeyPressButton(this)"
-            onclick="onClick(this)">Press Btn</button>
+            onkeydown="onKeyDownButton(this,event)" 
+            onkeyup="onKeyUpButton(this),event" 
+            onkeypress="onKeyPressButton(this,event)"
+            onclick="onClick(this,event)">Press Btn</button>
         <div style = "background-color:green;border:solid 4px black;width:100px;height:100px;"
-            onmousedown="onMouseDown(this);"
-            onmouseenter="onMouseEnter(this);"
-            onmousemove="onMouseMove(this);"
-            onmouseleave="onMouseLeave(this);"
-            onmouseout="onMouseOut(this);"
-            onmouseover="onMouseOver(this);"
-            onwheel="onWheel(this);">
+            onmousedown="onMouseDown(this,event);"
+            onmouseenter="onMouseEnter(this,event);"
+            onmousemove="onMouseMove(this,event);"
+            onmouseleave="onMouseLeave(this,event);"
+            onmouseout="onMouseOut(this,event);"
+            onmouseover="onMouseOver(this,event);"
+            onwheel="onWheel(this,event);">
         </div>
-        <div id="state"></div>
+        <table id="state">
+            <tr>
+                <th>
+                    Event Name
+                </th>
+                <th>
+                    Event Description
+                </th>
+            </tr>
+        </table>
         <hr/>
         <script> 
             function clearState()

@@ -1,4 +1,15 @@
 var checked = 1;
+/*
+let onClickEvent = () =>
+{
+    this.innerHTML = "X";
+}
+let elements = document.getElementsByClassName("krest");
+for(i=0;i<elements.length;i++)
+{
+    elements[i].addEventListener("click",onMouseDown(this));
+}
+*/
 function onMouseDown(sender)
 {
     setState("MOUSE DOWN");
@@ -35,3 +46,13 @@ function clearState(fClass,field)
     let state = document.getElementById(field);
     state.innerHTML="";
 }
+/*
+function onLoad()
+{                
+    elements = document.getElementsByClassName("krest");
+    for(i=0;i<elements.length;i++)
+    {
+        elements[i].addEventListener("click",onMouseDown(this));
+    }
+}
+*/

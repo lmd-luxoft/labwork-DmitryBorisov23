@@ -1,37 +1,38 @@
-function onMouseDown(sender)
+function onMouseDown(sender,e)
 {
-    setState("MOUSE DOWN");
+    setState("MOUSE DOWN",e);
 }
-function onMouseEnter(sender)
+function onMouseEnter(sender,e)
 {
-    setState("MOUSE ENTER");
+    setState("MOUSE ENTER",e);
 }
-function onMouseMove(sender)
+function onMouseMove(sender,e)
 {
-    setState("MOUSE MOVE");
+    setState("MOUSE MOVE",e);
 }
-function onMouseLeave(sender)
+function onMouseLeave(sender,e)
 {
-    setState("MOUSE LEAVE");
+    setState("MOUSE LEAVE",e);
 }
-function onMouseOut(sender)
+function onMouseOut(sender,e)
 {
 
-    setState("MOUSE OUT");
+    setState("MOUSE OUT",e);
 }
-function onMouseOver(sender)
+function onMouseOver(sender,e)
 {
 
-    setState("MOUSE OVER");
+    setState("MOUSE OVER",e);
 }
-function onWheel(sender)
+function onWheel(sender,e)
 {
 
-    setState("MOUSE WHEEL");
+    setState("MOUSE WHEEL",e);
 }
 
-function setState(text)
+function setState(text,e)
 {
-    let state = document.getElementById("state");
-    state.innerHTML+=text+"<br/>";
+    //let state = document.getElementById("state");
+    //state.innerHTML+=text+"<br/>";
+    AddState(text+"<br/>",e)
 }

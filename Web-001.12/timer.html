@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="state" style="border: 2px solid yellow; width:90%; height: 30px; margin:20px">
+            This is sandbox
+        </div>
+        <button id ="btn" style="position:absolute;top:1px;left:1px">Press me</button>
+        <button id ="stopbtn" onclick="StopBtn()" style="position:absolute;top:1px;left:1px">Stop running button</button>
+        <a id="google" href="http://google.com">Google</a>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            setTimeout(()=> {
+                let state = document.getElementById("state");
+                state.style.color = `rgb(${random(255)},${random(255)},${random(255)})`;
+            }, 5000);
+            setInterval(()=> {
+                let state = document.getElementById("state");
+                state.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+            }, 3000);
+            let hideText = setTimeout( () => {                
+                let state = document.getElementById("state");
+                state.style.display = "none";
+            },7000)
+            clearTimeout(hideText);
+            let running = setInterval(()=> {
+                let btn = document.getElementById("btn");
+                btn.style.top = random(300) +"px";
+                btn.style.left = random(1000) +"px";
+            }, 500);
+            function StopBtn()
+            {
+                clearInterval(running);
+            }
+        </script>
+    </body>
+</html>

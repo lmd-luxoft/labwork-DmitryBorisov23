@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="stateDisplay.js"></script>
+        <button id = "rabbit">Press me</button>
+        <div id="display" style="background-color:  green; width:50%; height: 50%"></div>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            function setupHandler()
+            {
+                let display = document.getElementById("display");
+                let rabbit = document.getElementById("rabbit");
+                rabbit.addEventListener('click', () => {
+                    let x= random(255);
+                    display.innerHTML = x;
+                    rabbit.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+                })
+                console.log("setupHandlers finished");
+            }
+            setupHandler();
+        </script>
+    </body>
+</html>
