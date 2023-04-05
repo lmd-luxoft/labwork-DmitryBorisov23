@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="state">
+        </div>
+        <button>Press me</button>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            let btn = document.getElementsByTagName("button")[0];
+            btn.addEventListener('click',()=>{
+                btn.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+            });
+            let promise = new Promise((resolve, reject)=> {
+                let state = document.getElementById("state");
+                let i = 0;
+                let intv = setInterval(()=>{
+                    state.innerHTML = i++;
+                    if(random(3)==2)
+                    {
+                        clearInterval(intv);
+                        reject("oops");
+                    }
+                    if(i > 10)
+                    {
+                        clearInterval(intv);
+                        resolve(i); //resolve() is Ok too
+                    }
+                },2000)
+            });
+            promise.then((result) => {
+                state.innerHTML = `<h1>${result}<h1>`
+            },
+            (error) => {
+                state.innerHTML = error;
+                state.style.backgroundColor = `red`;
+                state.style.color = `white`;
+            })
+            .finally(()=>{
+                state.innerHTML += " Ok";
+            })
+            .then((result)=>{
+                state.style.color = `rgb(${random(255)},${random(255)},${random(255)})`;
+            });;
+        </script>
+    </body>
+</html>
