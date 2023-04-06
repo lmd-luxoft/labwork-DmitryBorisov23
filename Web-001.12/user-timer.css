@@ -1,0 +1,6 @@
+timer {
+    width: 5cm;
+    height: 5cm;
+    border: 2px solid magenta;
+    display : block;
+}

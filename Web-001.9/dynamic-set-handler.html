@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body onload="LoadComplete()">
+        <script>
+            function LoadComplete()
+            {                
+                let state = document.getElementById("state");
+                state.innerHTML += "LOAD COMPLETE <br/>"
+            }
+            function SetHandlers()
+            {
+                let rabbit = document.getElementById("rabbit");
+                rabbit.onclick = (e) => 
+                {
+                    let state = document.getElementById("state");
+                    state.innerHTML += `${e.type} ${e.clientX} ${e.clientY} <br/>`
+                }
+                rabbit.onmouseenter = () =>
+                {
+                    let state = document.getElementById("state");
+                    state.innerHTML += `${e.type} ${e.clientX} ${e.clientY} <br/>`
+                }
+            }
+        </script>
+        <div id="rabbit" style="background-color:  green; border: solid 3px black; width:100px; height: 100px"></div>
+        <button onclick="SetHandlers()">Set event handlers</button>
+        <hr/>
+        <div id="state"></div>
+        <script>
+            alert("delay....");
+        </script>
+    </body>
+</html>

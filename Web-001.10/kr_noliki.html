@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .krest 
+            {
+                border:solid 2px black;width:50px;height:50px;text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="userButton" onclick="clearState('krest','state');">New</button>
+        <table>
+            <tr>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+                <td>
+                    <div class = "krest"></div>
+                </td>
+            </tr>
+        </table>
+        <script src="kr-noliki.js"></script>
+        <script>
+            //let game = new TicTacToe();
+            
+            let elements = document.getElementsByClassName("krest");
+            for(elem of elements)
+            {
+                //elem.addEventListener('click',game);
+                elem.addEventListener('click',(e) =>{
+                    //e.currentTarget.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+                    //this.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+                    onClickEvent(e);
+                });
+            }
+        </script>
+        <div id="state"></div>
+        <hr/>
+    </body>
+</html>

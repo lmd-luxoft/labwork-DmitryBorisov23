@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="state">
+        </div>
+        <button id="btn">Press me</button>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            let btn = document.getElementById("btn");
+            btn.addEventListener("click",async () => {
+                let response = await fetch("http://localhost:8000/json",{
+                    headers: 'Access-Control-Allow-Origin'
+                });
+                let view ='';
+                if(response.ok)
+                {
+                    let data = response.json();
+                    let view = `Id = ${data.id} user name = ${data.detail.user}`
+                }
+                else{
+                    view = `Error in http request ${response.status}`;
+                }
+                let state = document.getElementById("state");
+                state.innerHTML = view;
+            });
+        </script>
+    </body>
+</html>

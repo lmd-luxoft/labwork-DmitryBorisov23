@@ -1,0 +1,53 @@
+div > p { /*Придумайте селектор, который выберет абзацы <p> внутри дивов <div>.*/
+    background-color: blueviolet;
+    width:100px;
+}
+div > h2 { /*Придумайте селектор, который выберет все <h2> внутри дивов <div>.*/
+    padding:12px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width:200px;
+    border:1px solid blue;
+    border-style:ridge;
+    color: darkviolet;
+}
+h3 {
+    padding:12px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width:150px;
+    color: darkblue;
+}
+a:link {
+color:red;
+}
+a:visited {
+color:blue;
+}
+#test > p { /*Придумайте селектор, который выберет все абзацы <p> из элемента с id=test.*/
+    color:white;
+}
+#test h2 { /*Придумайте селектор, который выберет все <h2> из элемента с id=test.*/
+    color:green;
+}
+.bbb { /*Выберите все элементы с классом bbb.*/
+    color:yellow;
+}
+p.bbb { /*Выберите все абзацы <p> с классом bbb.*/
+    color:red;
+}
+h2.bbb { /*Выберите все <h2> с классом bbb.*/
+    color:darkred;
+}
+#test p.bbb { /*Выберите все абзацы <p> с классом bbb из элемента с id=test.*/
+    color:lightblue;
+    text-align: right;
+}
+#test .bbb { /*Выберите все элементы с классом bbb из элемента с id=test.*/
+    color:mediumspringgreen;
+    text-align: center;
+}
+.xxx, .bbb { /*Выберите все элементы с классом bbb и элементы с классом xxx одновременно.*/
+    color:blue;
+    text-align: center;
+}

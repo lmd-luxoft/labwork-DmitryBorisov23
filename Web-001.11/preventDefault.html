@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <a id="google" href="http://google.com">Google</a>
+        <hr/>
+        <script> 
+            let elem = document.getElementById("google");
+            elem.addEventListener('click',(e)=> {
+                e.target.style.backgroundColor = "yellow";
+                e.preventDefault();
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="state" style="border: 2px solid yellow; width:90%; height: 30px; margin:20px">
+        </div>
+        <hr/>
+        <script src="oop-eventhandler.js"></script>
+        <script>
+            let bl = new BusinessServiceNew();
+            let state = document.getElementById("state");
+            state.addEventListener("click",bl);
+            state.addEventListener("mousedown",bl);
+            state.addEventListener("mouseup",bl);
+        </script>
+    </body>
+</html>

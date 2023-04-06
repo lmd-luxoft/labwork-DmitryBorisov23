@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="outer" style="border: 2px solid green">        
+            <div id="inner" style="border: 2px solid yellow; width:90%; height: 30px; margin:20px"></div>
+        </div>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            let currentCall = 0;
+            let inner = document.getElementById("inner");
+            let outer = document.getElementById("outer");
+            let buble = (e) => {
+                e.target.innerHTML +=` ${++currentCall} target-buble`;
+                e.currentTarget.innerHTML +=` ${++currentCall} current-buble`;
+                //e.stopPropagation();
+                //e.stopImmediatePropagation();
+                console.log(`${e.currentTarget.getAttribute("id")} - bubble`);
+            }
+            let capture = (e) => {
+                e.target.innerHTML +=` ${++currentCall} target-capture`;
+                e.currentTarget.innerHTML +=` ${++currentCall} current-capture`;
+                //e.stopPropagation();
+                //e.stopImmediatePropagation();
+                console.log(`${e.currentTarget.getAttribute("id")} - capture`);
+            }
+            inner.addEventListener('click',buble);
+            inner.addEventListener('click', capture, true)
+            outer.addEventListener('click',buble);
+            outer.addEventListener('click', capture, true)
+        </script>
+    </body>
+</html>

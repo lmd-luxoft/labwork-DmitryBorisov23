@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="outer" style="border: 2px solid green">        
+            <div id="inner" style="border: 2px solid yellow; width:90%; height: 30px; margin:20px"></div>
+        </div>
+        <hr/>
+        <script> 
+            function random(number)
+            {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            let divs = document.getElementsByTagName("div");
+            for(elem of divs)
+            {
+                elem.addEventListener('click', (e) =>{
+                    //e.currentTarget.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+                    //this.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+                    e.currentTarget.innerHTML += "click...";
+                    e.target.innerHTML += random(255);
+                })
+            }
+        </script>
+    </body>
+</html>

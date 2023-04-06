@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="user-timer.css"/>
+    </head>
+    <body>
+        <timer id="mytime" timeout="3000"></timer>
+        <timer id="mytime1" timeout="10000"></timer>
+        
+        <script>
+            let mytime = document.getElementById("mytime");
+            mytime.addEventListener("ontime",HandleTimer);
+            let mytime1 = document.getElementById("mytime1");
+            mytime1.addEventListener("ontime",HandleTimer);
+            function random(number) {
+                return Math.floor(Math.random() * (number+1));
+            }
+            function HandleTimer()
+            {
+               let time = document.getElementById("mytime");
+               time.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;  
+               let time1 = document.getElementById("mytime1");
+               time1.style.backgroundColor = `rgb(${random(255)},${random(255)},${random(255)})`;      
+            }
+        </script>
+        <script src="user-timer.js"></script>
+      
+    </body>
+</html>

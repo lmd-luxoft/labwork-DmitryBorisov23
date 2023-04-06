@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .krest 
+            {
+                border:solid 2px black;width:50px;height:50px;text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="kr-noliki.js"></script>
+        <button onclick = "document.getElementById('time').innerHTML=Date()">The time is?</button>
+        <p id="time"></p>
+        <button id="userButton" onclick="clearState('krest','state');">New</button>
+        <table>
+            <tr>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+                <td>
+                    <div class = "krest" onmousedown = "onMouseDown(this)"></div>
+                </td>
+            </tr>
+        </table>
+        <div id="state"></div>
+        <hr/>
+    </body>
+</html>
