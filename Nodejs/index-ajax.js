@@ -5,6 +5,44 @@ const url = require("url");
 const host = "localhost";
 const port = 8000;
 
+function ajax(request, response)
+{
+   let html = `<html>
+   <head>
+
+   </head>
+   <body>
+       <button id="btn">click for load</button>
+       <div id="state"></div>
+       <script>
+           let btn  = document.getElementById("btn");
+           btn.addEventListener("click", async () => {
+                   let response = await fetch("http://localhost:8000/json", {
+                       headers : {
+                          
+                       }
+                   });
+                   let view = '';
+                   if(response.ok)
+                     {
+                       let data = await response.json();
+                       view = \`Id = \${data.id} User name = \${data.detail.user} \`;
+                       
+                     }
+                   else {
+                       view = \`Error in http request \${response.status}\`;    
+                   }
+                   let state = document.getElementById("state");
+                   state.innerHTML = view;
+           });
+       </script>
+   </body>
+</html>`;
+response.setHeader("Content-Type","text/html");
+response.writeHead(200);
+response.write(html);
+}
+
 function root(request, response)
 {
     response.setHeader("Content-Type","text/html");
@@ -15,10 +53,9 @@ function root(request, response)
 function json(request, response)
 {
     response.setHeader("Content-Type","application/json");
-    response.setHeader('Access-Control-Allow-Origin',"*");
-    
+    response.setHeader("Access-Control-Allow-Origin", "*");
     response.writeHead(200);
-    response.write("{ 'id' : 2, 'detail' : { 'user' : 'test', tag : 5}, data : [0,6,1,5,4]}");
+    response.write('{ "id" : 2, "detail" : { "user" : "test", "tag" : 5}, "data" : [0,6,1,5,4]}');
 }
 
 function calc(num, response)
@@ -46,6 +83,9 @@ const handlerRequest = (request, response) =>
         break;
      case "/css" :
         css(request, response);
+        break;
+     case "/ajax" :
+        ajax(request, response);
         break;
      default:
         {
